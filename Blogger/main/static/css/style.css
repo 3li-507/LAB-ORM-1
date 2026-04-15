@@ -1,0 +1,531 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap');
+
+/* ── Fonts ── */
+* {
+  font-family: 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.blogger-brand,
+.blogger-footer-brand {
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* ── Light Mode ── */
+:root,
+[data-theme="light"] {
+  --bg-primary:       #F8F5F0;
+  --bg-secondary:     #EEEAE3;
+  --bg-card:          #FFFFFF;
+  --bg-navbar:        #FFFFFF;
+  --bg-footer:        #1A1714;
+
+  --text-primary:     #1A1A1A;
+  --text-secondary:   #555555;
+  --text-muted:       #888888;
+  --text-footer:      #C8B99A;
+  --text-footer-head: #F0EDE8;
+
+  --accent-gold:      #C8972B;
+  --accent-gold-hover:#A87820;
+  --accent-gold-light:#F5E6C4;
+
+  --border-color:     #E0DAD0;
+  --shadow-sm:        0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md:        0 4px 20px rgba(0,0,0,0.12);
+  --shadow-lg:        0 8px 40px rgba(0,0,0,0.16);
+
+  --navbar-border:    rgba(200, 151, 43, 0.2);
+  --dropdown-bg:      #FFFFFF;
+  --dropdown-hover:   #F8F5F0;
+
+  --btn-outline-text:   #1A1A1A;
+  --btn-outline-border: #C8972B;
+}
+
+/* ── Dark Mode ── */
+[data-theme="dark"] {
+  --bg-primary:       #0F0F0F;
+  --bg-secondary:     #1A1A1A;
+  --bg-card:          #1E1E1E;
+  --bg-navbar:        #111111;
+  --bg-footer:        #080808;
+
+  --text-primary:     #F0EDE8;
+  --text-secondary:   #B0A89E;
+  --text-muted:       #777777;
+  --text-footer:      #8A7D6E;
+  --text-footer-head: #D4C9BC;
+
+  --accent-gold:      #C8972B;
+  --accent-gold-hover:#E0AA40;
+  --accent-gold-light:#2A2010;
+
+  --border-color:     #2A2A2A;
+  --shadow-sm:        0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:        0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg:        0 8px 40px rgba(0,0,0,0.5);
+
+  --navbar-border:    rgba(200, 151, 43, 0.15);
+  --dropdown-bg:      #1E1E1E;
+  --dropdown-hover:   #252525;
+
+  --btn-outline-text:   #F0EDE8;
+  --btn-outline-border: #C8972B;
+}
+
+/* ── Base ── */
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary) !important;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-gold-hover);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 3px; }
+
+
+/* ══════════════════════════════
+   NAVBAR
+══════════════════════════════ */
+.blogger-navbar {
+  background-color: var(--bg-navbar) !important;
+  border-bottom: 1px solid var(--navbar-border);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
+  padding: 0.75rem 0;
+}
+
+.blogger-brand {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.blogger-brand .brand-icon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--accent-gold);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.blogger-navbar .nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.75rem !important;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.blogger-navbar .nav-link:hover,
+.blogger-navbar .nav-link.active {
+  color: var(--accent-gold) !important;
+  background-color: var(--accent-gold-light);
+}
+
+[data-theme="dark"] .blogger-navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+
+/* ══════════════════════════════
+   BUTTONS
+══════════════════════════════ */
+.blogger-btn-outline {
+  background: transparent;
+  color: var(--btn-outline-text);
+  border: 1px solid var(--btn-outline-border);
+  border-radius: 8px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.blogger-btn-outline:hover {
+  background-color: var(--accent-gold);
+  color: #fff;
+  border-color: var(--accent-gold);
+}
+
+.blogger-btn-gold {
+  background-color: var(--accent-gold);
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.blogger-btn-gold:hover {
+  background-color: var(--accent-gold-hover);
+  transform: translateY(-1px);
+}
+
+.blogger-btn-lg {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+
+/* ══════════════════════════════
+   CARDS
+══════════════════════════════ */
+.blogger-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.blogger-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.blogger-card-body {
+  padding: 1.25rem;
+}
+
+.blogger-card-title {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.blogger-card-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blogger-card-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.blogger-hero {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+
+.blogger-hero-title {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.blogger-hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.blogger-gold-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+  margin: 1rem auto;
+}
+
+
+/* ══════════════════════════════
+   SECTION TITLES
+══════════════════════════════ */
+.blogger-section-title {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  color: var(--text-primary);
+}
+
+.blogger-section-title span {
+  color: var(--accent-gold);
+}
+
+.blogger-section-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 550px;
+}
+
+
+/* ══════════════════════════════
+   FORM PAGE
+══════════════════════════════ */
+.blogger-form-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  max-width: 700px;
+}
+
+.blogger-field-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.blogger-field-input,
+.blogger-field-textarea {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blogger-field-input:focus,
+.blogger-field-textarea:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(200, 151, 43, 0.15);
+  background-color: var(--bg-card);
+}
+
+.blogger-field-textarea {
+  resize: vertical;
+  min-height: 200px;
+  line-height: 1.6;
+}
+
+.blogger-publish-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.blogger-publish-row input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--accent-gold);
+  cursor: pointer;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.blogger-publish-row label {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  margin: 0;
+}
+
+.blogger-publish-row label small {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin-top: 0.1rem;
+}
+
+.blogger-error-msg {
+  background-color: rgba(200, 50, 43, 0.08);
+  border: 1px solid rgba(200, 50, 43, 0.25);
+  border-left: 4px solid #c0392b;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #c0392b;
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+}
+
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+.blogger-footer {
+  background-color: var(--bg-footer);
+  transition: background-color 0.3s ease;
+}
+
+.blogger-footer-brand {
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-footer-head);
+}
+
+.blogger-footer-text {
+  color: var(--text-footer);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.blogger-footer-heading {
+  color: var(--text-footer-head);
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.blogger-footer-links li {
+  margin-bottom: 0.45rem;
+}
+
+.blogger-footer-links a,
+.blogger-footer-links li {
+  color: var(--text-footer);
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.blogger-footer-links a:hover {
+  color: var(--accent-gold);
+}
+
+.blogger-footer-divider {
+  border-color: rgba(200, 151, 43, 0.15);
+}
+
+.blogger-footer-copy {
+  color: var(--text-footer);
+  font-size: 0.8rem;
+}
+
+
+/* ══════════════════════════════
+   UTILITIES
+══════════════════════════════ */
+.text-gold { color: var(--accent-gold) !important; }
+.bg-card   { background-color: var(--bg-card) !important; }
+
+.blogger-divider {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin: 2rem 0;
+}
+
+.blogger-page-header {
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.blogger-page-title {
+  font-family: 'Tajawal', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.blogger-page-sub {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+
+/* ══════════════════════════════
+   ANIMATIONS
+══════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up         { animation: fadeInUp 0.5s ease forwards; }
+.fade-in-up-delay-1 { animation: fadeInUp 0.5s ease 0.1s forwards; opacity: 0; }
+.fade-in-up-delay-2 { animation: fadeInUp 0.5s ease 0.2s forwards; opacity: 0; }
+.fade-in-up-delay-3 { animation: fadeInUp 0.5s ease 0.3s forwards; opacity: 0; }
+
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 768px) {
+  .blogger-hero {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .blogger-form-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .blogger-hero-title {
+    font-size: 1.75rem;
+  }
+}

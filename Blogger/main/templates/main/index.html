@@ -1,0 +1,92 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Blogger — Home{% endblock %}
+
+{% block content %}
+
+<!-- ══════════════════════════════════════ HERO -->
+<section class="blogger-hero">
+  <div class="container">
+
+    <p class="text-gold fw-600 mb-2 fade-in-up" style="font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase;">
+      Welcome to Blogger
+    </p>
+
+    <h1 class="blogger-hero-title fade-in-up-delay-1">
+      Latest <span class="text-gold">Posts</span>
+    </h1>
+
+    <div class="blogger-gold-line fade-in-up-delay-2"></div>
+
+    <p class="blogger-hero-subtitle fade-in-up-delay-2">
+      Read the freshest stories, thoughts, and ideas — published by our community.
+    </p>
+
+    <a href="{% url 'add_post_view' %}" class="btn blogger-btn-gold blogger-btn-lg fade-in-up-delay-3 mt-2">
+      <i class="bi bi-pencil-square me-2"></i>Write a Post
+    </a>
+
+  </div>
+</section>
+<!-- END HERO -->
+
+
+<!-- ══════════════════════════════════════ POSTS -->
+<section class="py-5">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="text-center mb-5">
+      <h2 class="blogger-section-title">
+        Recent <span>Stories</span>
+      </h2>
+      <p class="blogger-section-subtitle mx-auto mt-2">
+        {{ posts.count }} post{{ posts.count|pluralize }} published so far
+      </p>
+      <div class="blogger-gold-line mx-auto mt-3"></div>
+    </div>
+
+    <!-- Posts Grid -->
+    {% if posts %}
+    <div class="row gy-4">
+      {% for post in posts %}
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="blogger-card h-100">
+          <div class="blogger-card-body">
+
+            <h3 class="blogger-card-title">{{ post.title }}</h3>
+
+            <p class="blogger-card-text mt-2">{{ post.content }}</p>
+
+            <div class="blogger-card-meta">
+              <i class="bi bi-calendar3"></i>
+              <span>{{ post.published_at|date:"F j, Y" }}</span>
+              <span style="opacity:0.4;">•</span>
+              <i class="bi bi-clock"></i>
+              <span>{{ post.published_at|time:"g:i A" }}</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% else %}
+    <!-- Empty state -->
+    <div class="text-center py-5">
+      <i class="bi bi-journal-x" style="font-size:3rem; color:var(--text-muted);"></i>
+      <h4 class="mt-3" style="color:var(--text-primary); font-family:'Tajawal',sans-serif;">No posts yet</h4>
+      <p style="color:var(--text-muted); font-size:0.9rem;">Be the first to share your thoughts.</p>
+      <a href="{% url 'add_post_view' %}" class="btn blogger-btn-gold mt-2">
+        <i class="bi bi-plus-lg me-1"></i>Write the First Post
+      </a>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+<!-- END POSTS -->
+
+{% endblock %}
