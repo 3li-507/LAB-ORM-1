@@ -27,7 +27,7 @@
       {% endif %}
 
       <!-- Raw HTML form — no Django Form class -->
-      <form method="POST" action="{% url 'add_post_view' %}">
+      <form method="POST" action="{% url 'main:add_post_view' %}" enctype="multipart/form-data">
         {% csrf_token %}
 
         <!-- Title -->
@@ -59,6 +59,8 @@
             placeholder="Write your story here..."
             required
           >{{ request.POST.content|default:'' }}</textarea>
+
+          <input type="file" name="poster" class="form-control">
         </div>
 
         <hr class="blogger-divider">
@@ -68,7 +70,7 @@
           <button type="submit" class="btn blogger-btn-gold blogger-btn-lg">
             <i class="bi bi-send-fill me-2"></i>Publish Post
           </button>
-          <a href="{% url 'home_view' %}" style="color:var(--text-muted); font-size:0.9rem;">
+          <a href="{% url 'main:home_view' %}" style="color:var(--text-muted); font-size:0.9rem;">
             <i class="bi bi-x-lg me-1"></i>Cancel
           </a>
         </div>

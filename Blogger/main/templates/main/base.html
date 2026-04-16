@@ -34,7 +34,7 @@
     <div class="container">
 
       <!-- Brand / Logo -->
-      <a class="navbar-brand blogger-brand" href="{% url 'home_view' %}">
+      <a class="navbar-brand blogger-brand" href="{% url 'main:home_view' %}">
         <div class="brand-icon">B</div>
         Blogger
       </a>
@@ -50,15 +50,15 @@
         <ul class="navbar-nav mx-auto gap-2">
 
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'home_view' %}active{% endif %}"
-               href="{% url 'home_view' %}">
+            <a class="nav-link {% if request.resolver_match.url_name == 'main:home_view' %}active{% endif %}"
+               href="{% url 'main:home_view' %}">
               <i class="bi bi-house me-1"></i>Home
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'add_post_view' %}active{% endif %}"
-               href="{% url 'add_post_view' %}">
+            <a class="nav-link {% if request.resolver_match.url_name == 'main:add_post_view' %}active{% endif %}"
+               href="{% url 'main:add_post_view' %}">
               <i class="bi bi-pencil-square me-1"></i>New Post
             </a>
           </li>
@@ -74,7 +74,7 @@
           </button>
 
           <!-- Write CTA -->
-          <a href="{% url 'add_post_view' %}" class="btn btn-sm blogger-btn-gold">
+          <a href="{% url 'main:add_post_view' %}" class="btn btn-sm blogger-btn-gold">
             <i class="bi bi-plus-lg me-1"></i>Write
           </a>
 
@@ -112,8 +112,8 @@
         <div class="col-6 col-md-3">
           <h6 class="blogger-footer-heading">Quick Links</h6>
           <ul class="list-unstyled blogger-footer-links">
-            <li><a href="{% url 'home_view' %}">Home</a></li>
-            <li><a href="{% url 'add_post_view' %}">New Post</a></li>
+            <li><a href="{% url 'main:home_view' %}">Home</a></li>
+            <li><a href="{% url 'main:add_post_view' %}">New Post</a></li>
           </ul>
         </div>
 
