@@ -357,9 +357,9 @@ a:hover {
   background-color: var(--bg-card);
 }
 
-input{
+/* input{
   background-color: gray;
-}
+} */
 
 .blogger-field-textarea {
   resize: vertical;
@@ -536,3 +536,24 @@ input{
 
 ::-webkit-scrollbar-thumb { background: var(--accent-gold);}
 ::-webkit-scrollbar-thumb:hover{background-color: blue;}
+
+/* صورة البوست */
+img {
+  border-radius: 10px;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* صورة الأبديت */
+.update-preview-img {
+  height: 80px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* file input */
+.form-control {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
